@@ -1,6 +1,22 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+using MassTransit;
+using MassTransit.Configuration;
+using MassTransit.Example.WorkerService.Consumer;
+using MassTransit.Example.WorkerService.Consumer.Consumers;
 
-app.MapGet("/", () => "Hello World!");
+IHost host = Host.CreateDefaultBuilder(args)
+    .ConfigureServices(services =>
+    {
+        services.AddHostedService<Worker>();
+        services.AddMassTransit(configurator =>
+        {
+            configurator.AddConsumer<ExampleMessageConsumer>();
+            configurator.UsingRabbitMq((context, _configurator) =>
+            {
+                _configurator.Host("amqps://zsnlveev:cUZKbiRaHqFpwyS6n8BifgxqwlebTcqa@toad.rmq.cloudamqp.com/zsnlveev");
+                _configurator.ReceiveEndpoint("example-message-queue",e => e.ConfigureConsumer<ExampleMessageConsumer>(context));
+            });
+        });
+    })
+    .Build();
 
-app.Run();
+await host.RunAsync();
