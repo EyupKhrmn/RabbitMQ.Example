@@ -1,0 +1,15 @@
+C:\Users\Eyup\RiderProjects\RabbitMQ.Example\MassTransit.Example.Shared\bin\Debug\net6.0\MassTransit.Example.Shared.exe
+C:\Users\Eyup\RiderProjects\RabbitMQ.Example\MassTransit.Example.Shared\bin\Debug\net6.0\MassTransit.Example.Shared.deps.json
+C:\Users\Eyup\RiderProjects\RabbitMQ.Example\MassTransit.Example.Shared\bin\Debug\net6.0\MassTransit.Example.Shared.runtimeconfig.json
+C:\Users\Eyup\RiderProjects\RabbitMQ.Example\MassTransit.Example.Shared\bin\Debug\net6.0\MassTransit.Example.Shared.dll
+C:\Users\Eyup\RiderProjects\RabbitMQ.Example\MassTransit.Example.Shared\bin\Debug\net6.0\MassTransit.Example.Shared.pdb
+C:\Users\Eyup\RiderProjects\RabbitMQ.Example\MassTransit.Example.Shared\obj\Debug\net6.0\MassTransit.Example.Shared.csproj.AssemblyReference.cache
+C:\Users\Eyup\RiderProjects\RabbitMQ.Example\MassTransit.Example.Shared\obj\Debug\net6.0\MassTransit.Example.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Eyup\RiderProjects\RabbitMQ.Example\MassTransit.Example.Shared\obj\Debug\net6.0\MassTransit.Example.Shared.AssemblyInfoInputs.cache
+C:\Users\Eyup\RiderProjects\RabbitMQ.Example\MassTransit.Example.Shared\obj\Debug\net6.0\MassTransit.Example.Shared.AssemblyInfo.cs
+C:\Users\Eyup\RiderProjects\RabbitMQ.Example\MassTransit.Example.Shared\obj\Debug\net6.0\MassTransit.Example.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Eyup\RiderProjects\RabbitMQ.Example\MassTransit.Example.Shared\obj\Debug\net6.0\MassTransit.Example.Shared.dll
+C:\Users\Eyup\RiderProjects\RabbitMQ.Example\MassTransit.Example.Shared\obj\Debug\net6.0\refint\MassTransit.Example.Shared.dll
+C:\Users\Eyup\RiderProjects\RabbitMQ.Example\MassTransit.Example.Shared\obj\Debug\net6.0\MassTransit.Example.Shared.pdb
+C:\Users\Eyup\RiderProjects\RabbitMQ.Example\MassTransit.Example.Shared\obj\Debug\net6.0\MassTransit.Example.Shared.genruntimeconfig.cache
+C:\Users\Eyup\RiderProjects\RabbitMQ.Example\MassTransit.Example.Shared\obj\Debug\net6.0\ref\MassTransit.Example.Shared.dll

@@ -83,52 +83,52 @@ using IModel channel = connection.CreateModel();
 
 #region Request/Response Type
 
-string queueName = "example-request-response";
+//string queueName = "example-request-response";
 
 #region Publisher işlemleri
 
-channel.QueueDeclare(
-    queue: queueName,
-    durable: false,
-    exclusive: false,
-    autoDelete: false);
-
-string replyQueueName = channel.QueueDeclare().QueueName;
-
-string correlationId = Guid.NewGuid().ToString();
-
-IBasicProperties properties = channel.CreateBasicProperties();
-properties.CorrelationId = correlationId;
-
-properties.ReplyTo = replyQueueName;
-
-byte[] body = Encoding.UTF8.GetBytes("Request Message");
-
-channel.BasicPublish(
-    exchange: string.Empty,
-    routingKey: queueName,
-    body: body,
-    basicProperties: properties);
+// channel.QueueDeclare(
+//     queue: queueName,
+//     durable: false,
+//     exclusive: false,
+//     autoDelete: false);
+//
+// string replyQueueName = channel.QueueDeclare().QueueName;
+//
+// string correlationId = Guid.NewGuid().ToString();
+//
+// IBasicProperties properties = channel.CreateBasicProperties();
+// properties.CorrelationId = correlationId;
+//
+// properties.ReplyTo = replyQueueName;
+//
+// byte[] body = Encoding.UTF8.GetBytes("Request Message");
+//
+// channel.BasicPublish(
+//     exchange: string.Empty,
+//     routingKey: queueName,
+//     body: body,
+//     basicProperties: properties);
 
 
 #endregion
 
 #region Consumer İşlemleri
 
-EventingBasicConsumer consumer = new(channel);
-
-channel.BasicConsume(
-    queue: queueName,
-    autoAck: false,
-    consumer: consumer);
-
-consumer.Received += (sender, e) =>
-{
-    if (e.BasicProperties.CorrelationId == correlationId)
-    {
-        Console.WriteLine(Encoding.UTF8.GetString(e.Body.Span));
-    }
-};
+// EventingBasicConsumer consumer = new(channel);
+//
+// channel.BasicConsume(
+//     queue: queueName,
+//     autoAck: false,
+//     consumer: consumer);
+//
+// consumer.Received += (sender, e) =>
+// {
+//     if (e.BasicProperties.CorrelationId == correlationId)
+//     {
+//         Console.WriteLine(Encoding.UTF8.GetString(e.Body.Span));
+//     }
+// };
 
 #endregion
 
