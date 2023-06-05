@@ -1,3 +1,17 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using MassTransit;
+using MassTransit.RequestResponsePattern.Consumer.Consumers;
 
-Console.WriteLine("Hello, World!");
+string rabbitMqUri = "amqps://zsnlveev:cUZKbiRaHqFpwyS6n8BifgxqwlebTcqa@toad.rmq.cloudamqp.com/zsnlveev";
+
+IBusControl bus = Bus.Factory.CreateUsingRabbitMq(factory =>
+{
+    factory.Host(rabbitMqUri);
+    factory.ReceiveEndpoint("request-queue", endpoint =>
+    {
+        endpoint.Consumer<RequestMessageConsumer>();
+    });
+});
+
+await bus.StartAsync();
+
+Console.Read();
