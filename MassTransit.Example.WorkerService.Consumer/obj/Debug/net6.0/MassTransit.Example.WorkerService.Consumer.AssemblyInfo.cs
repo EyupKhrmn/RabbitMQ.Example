@@ -10,6 +10,8 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("dotnet-MassTransit.Example.WorkerService.Consumer-52D5C939-5C76-4329-991B-D062E10" +
+    "041B2")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("MassTransit.Example.WorkerService.Consumer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
