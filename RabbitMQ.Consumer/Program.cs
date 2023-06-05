@@ -97,35 +97,35 @@ using IModel channel = connection.CreateModel();
 
 #region HeaderExchangeExample
 
-channel.ExchangeDeclare(exchange: "header-exchange",ExchangeType.Headers);
-Console.WriteLine("Lütfen Header Value'sunu giriniz: ");
-string value = Console.ReadLine();
-
-string queueName = channel.QueueDeclare().QueueName;
-
-channel.QueueBind(
-    queueName,exchange:"header-exchange",
-    routingKey:string.Empty,
-    new Dictionary<string, object>
-    {
-        ["x-match"] = "any",//default olarak any gelir istenirle all da yapılabilir. any halinde iken header'da herhangi bir değer tutarsa mesajı yollar
-                            // all halinde ise tüm header'ların birbirini tutması gerekir. 
-        ["no"] = value
-    });
-
-
-EventingBasicConsumer consumer = new(channel);
-
-channel.BasicConsume(
-    queueName,
-    autoAck: true,
-    consumer: consumer);
-
-consumer.Received += (sender, e) =>
-{
-    string message = Encoding.UTF8.GetString(e.Body.Span);
-    Console.WriteLine(message);
-};
+// channel.ExchangeDeclare(exchange: "header-exchange",ExchangeType.Headers);
+// Console.WriteLine("Lütfen Header Value'sunu giriniz: ");
+// string value = Console.ReadLine();
+//
+// string queueName = channel.QueueDeclare().QueueName;
+//
+// channel.QueueBind(
+//     queueName,exchange:"header-exchange",
+//     routingKey:string.Empty,
+//     new Dictionary<string, object>
+//     {
+//         ["x-match"] = "any",//default olarak any gelir istenirle all da yapılabilir. any halinde iken header'da herhangi bir değer tutarsa mesajı yollar
+//                             // all halinde ise tüm header'ların birbirini tutması gerekir. 
+//         ["no"] = value
+//     });
+//
+//
+// EventingBasicConsumer consumer = new(channel);
+//
+// channel.BasicConsume(
+//     queueName,
+//     autoAck: true,
+//     consumer: consumer);
+//
+// consumer.Received += (sender, e) =>
+// {
+//     string message = Encoding.UTF8.GetString(e.Body.Span);
+//     Console.WriteLine(message);
+// };
 
 #endregion
 

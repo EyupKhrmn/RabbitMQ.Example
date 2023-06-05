@@ -36,21 +36,53 @@ using IModel channel = connection.CreateModel();
 
 #region Publish / Subscribe (Puv/Sub) Type
 
-string exchangeName = "example-pub/sub";
+// string exchangeName = "example-pub/sub";
+//
+// channel.ExchangeDeclare(
+//     exchange: exchangeName,
+//     type: ExchangeType.Fanout);
+//
+// for (int i = 0; i < 101; i++)
+// {
+//     byte[] body = Encoding.UTF8.GetBytes("Merhaba " + i);
+//
+//     channel.BasicPublish(
+//         exchange: exchangeName,
+//         routingKey: string.Empty,
+//         body: body);
+// }
 
-channel.ExchangeDeclare(
-    exchange: exchangeName,
-    type: ExchangeType.Fanout);
+#endregion
 
-for (int i = 0; i < 101; i++)
-{
-    byte[] body = Encoding.UTF8.GetBytes("Merhaba " + i);
+#region Work Queue Type
 
-    channel.BasicPublish(
-        exchange: exchangeName,
-        routingKey: string.Empty,
-        body: body);
-}
+// string queueName = "example-work";
+//
+// channel.QueueDeclare(
+//     queue: queueName,
+//     durable: false,
+//     exclusive: false,
+//     autoDelete: false);
+//
+// IBasicProperties properties = channel.CreateBasicProperties();
+// properties.Persistent = true;
+//
+// for (int i = 0; i < 101; i++)
+// {
+//     byte[] body = Encoding.UTF8.GetBytes("Merhaba");
+//
+//     channel.BasicPublish(
+//         exchange: string.Empty,
+//         routingKey: queueName,
+//         body: body,
+//         basicProperties: properties);
+// }
+
+#endregion
+
+#region Request/Response Type
+
+
 
 #endregion
 

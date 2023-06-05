@@ -86,27 +86,27 @@ using IModel channel = connection.CreateModel();
 
 #region HeaderExchangeExample
 
-channel.ExchangeDeclare(exchange: "header-exchange",ExchangeType.Headers);
-
-for (int i = 0; i < 101; i++)
-{
-    await Task.Delay(200);
-    byte[] message = Encoding.UTF8.GetBytes("Merhaba " + i);
-    Console.WriteLine("Mesajın yollancağı headeri giriniz: ");
-    string headers = Console.ReadLine();
-
-   IBasicProperties properties = channel.CreateBasicProperties();
-   properties.Headers = new Dictionary<string, object>()
-   {
-       ["no"] = headers
-   };
-    
-    channel.BasicPublish(
-        exchange: "header-exchange",
-        routingKey:"",body:message,
-        basicProperties: properties);
-    
-}
+// channel.ExchangeDeclare(exchange: "header-exchange",ExchangeType.Headers);
+//
+// for (int i = 0; i < 101; i++)
+// {
+//     await Task.Delay(200);
+//     byte[] message = Encoding.UTF8.GetBytes("Merhaba " + i);
+//     Console.WriteLine("Mesajın yollancağı headeri giriniz: ");
+//     string headers = Console.ReadLine();
+//
+//    IBasicProperties properties = channel.CreateBasicProperties();
+//    properties.Headers = new Dictionary<string, object>()
+//    {
+//        ["no"] = headers
+//    };
+//     
+//     channel.BasicPublish(
+//         exchange: "header-exchange",
+//         routingKey:"",body:message,
+//         basicProperties: properties);
+//     
+// }
 
 #endregion
 

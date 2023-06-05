@@ -42,31 +42,66 @@ using IModel channel = connection.CreateModel();
 
 #region Publish / Subscribe (Puv/Sub) Type
 
-string exchangeName = "example-pub/sub";
-
-channel.ExchangeDeclare(
-    exchange: exchangeName,
-    type: ExchangeType.Fanout);
-
-string queueName = "example-pub/sub";
-
-channel.QueueBind(
-    queue: queueName,
-    exchange: exchangeName,
-    routingKey: string.Empty);
-
-EventingBasicConsumer consumer = new(channel);
-
-channel.BasicConsume(
-    queue: queueName,
-    autoAck: false,
-    consumer: consumer);
-
-consumer.Received += (sender, e) =>
-{
-    Console.WriteLine(Encoding.UTF8.GetString(e.Body.Span));
-};
+// string exchangeName = "example-pub/sub";
+//
+// channel.ExchangeDeclare(
+//     exchange: exchangeName,
+//     type: ExchangeType.Fanout);
+//
+// string queueName = "example-pub/sub";
+//
+// channel.QueueBind(
+//     queue: queueName,
+//     exchange: exchangeName,
+//     routingKey: string.Empty);
+//
+// EventingBasicConsumer consumer = new(channel);
+//
+// channel.BasicConsume(
+//     queue: queueName,
+//     autoAck: false,
+//     consumer: consumer);
+//
+// consumer.Received += (sender, e) =>
+// {
+//     Console.WriteLine(Encoding.UTF8.GetString(e.Body.Span));
+// };
 
     #endregion
+
+#region Work Queue Type
+
+// string queueName = "example-work";
+//
+// channel.QueueDeclare(
+//     queue: queueName,
+//     durable: false,
+//     exclusive: false,
+//     autoDelete: false);
+//
+// EventingBasicConsumer consumer = new(channel);
+//
+// channel.BasicConsume(
+//     queue: queueName,
+//     autoAck: true,
+//     consumer: consumer);
+//
+// channel.BasicQos(
+//     prefetchCount: 1,
+//     prefetchSize: 0,
+//     global: false);
+//
+// consumer.Received += (sender, e) =>
+// {
+//     Console.WriteLine(Encoding.UTF8.GetString(e.Body.Span));
+// };
+
+#endregion
+
+#region Request/Response Type
+
+
+
+#endregion
 
 Console.Read();
